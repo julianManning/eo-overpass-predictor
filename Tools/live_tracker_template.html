@@ -1,0 +1,371 @@
+<title>__TITLE__</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a ground-station console — the orbital chart fills the left, a narrow telemetry rail runs on the right (stacks below on phones). */
+:root{
+  --bg:#EDF1F2; --panel:#F8FAFA; --ink:#17232B; --muted:#5B6B74; --line:#CAD3D7;
+  --ocean:#DAE5E9; --land:#BCC5BA; --coast:#A3AEA2; --grid:rgba(23,35,43,.10); --night:rgba(20,33,44,.20);
+  --roi:#D7263D; --accent:#0B6E99; --now:#0B7A4B; --warn:#A35B00;
+  --f-display:"Barlow Semi Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E161B; --panel:#131E24; --ink:#E2E9EB; --muted:#8C9EA7; --line:#24333B;
+  --ocean:#0F1D25; --land:#28362F; --coast:#3A4A41; --grid:rgba(226,233,235,.07); --night:rgba(0,0,0,.42);
+  --roi:#FF5C70; --accent:#55B6DD; --now:#3FD08E; --warn:#F0A64A; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0E161B; --panel:#131E24; --ink:#E2E9EB; --muted:#8C9EA7; --line:#24333B;
+  --ocean:#0F1D25; --land:#28362F; --coast:#3A4A41; --grid:rgba(226,233,235,.07); --night:rgba(0,0,0,.42);
+  --roi:#FF5C70; --accent:#55B6DD; --now:#3FD08E; --warn:#F0A64A; color-scheme:dark }
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:12px;box-sizing:border-box}
+*{box-sizing:border-box}
+.app{height:100%;display:grid;grid-template-rows:auto 1fr;gap:12px;min-height:520px}
+header{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;border-bottom:1px solid var(--line);padding-bottom:10px}
+h1{font-family:var(--f-display);font-weight:600;font-size:1.6rem;letter-spacing:.01em;margin:0;text-wrap:balance}
+.roi-tag{font-family:var(--f-mono);font-size:.8rem;color:var(--muted)}
+.roi-tag b{color:var(--roi);font-weight:500}
+.clocks{margin-left:auto;display:flex;gap:18px;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.clock span{display:block;font-family:var(--f-body);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.clock strong{font-weight:500;font-size:1.05rem}
+main{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:14px;min-height:0}
+.chart{position:relative;min-height:0;border:1px solid var(--line);background:var(--ocean);overflow:hidden;touch-action:none;cursor:grab}
+.chart.dragging{cursor:grabbing}
+canvas{display:block;width:100%;height:100%}
+.views{position:absolute;top:10px;left:10px;display:flex;gap:6px}
+.views button{font:500 .78rem var(--f-body);letter-spacing:.04em;padding:6px 10px;border:1px solid var(--line);
+  background:var(--panel);color:var(--ink);cursor:pointer}
+.views button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)}
+.views button:focus-visible,.sat:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.legend{position:absolute;left:10px;bottom:10px;font:.72rem var(--f-mono);color:var(--muted);background:var(--panel);
+  border:1px solid var(--line);padding:5px 8px;display:flex;gap:12px;flex-wrap:wrap}
+.legend i{display:inline-block;width:18px;height:0;border-top:2px solid var(--muted);vertical-align:middle;margin-right:5px}
+.legend i.dash{border-top-style:dashed}
+.legend i.roi{border-top-color:var(--roi)}
+aside{min-height:0;overflow:auto;display:flex;flex-direction:column;gap:16px;background:var(--panel);border:1px solid var(--line);padding:14px}
+h2{font-family:var(--f-display);font-weight:500;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.sat{display:grid;grid-template-columns:14px minmax(0,1fr) auto;gap:2px 8px;align-items:center;padding:7px 4px;border-top:1px solid var(--line);cursor:pointer;width:100%;
+  background:none;border-left:0;border-right:0;border-bottom:0;color:inherit;font:inherit;text-align:left}
+.sat[aria-pressed="false"]{opacity:.42}
+.dot{width:10px;height:10px;border-radius:50%}
+.sat .name{font-weight:600;font-size:.86rem}
+.sat .dir{font:.75rem var(--f-mono);color:var(--muted)}
+.sat .pos{grid-column:2/4;font:.76rem var(--f-mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.pass{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1px 10px;padding:8px 0;border-top:1px solid var(--line)}
+.pass .who{font-weight:600;font-size:.84rem;display:flex;align-items:center;gap:6px}
+.pass .cd{font:500 .84rem var(--f-mono);font-variant-numeric:tabular-nums;text-align:right}
+.pass .when{font:.76rem var(--f-mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.pass .meta{font-size:.72rem;color:var(--muted);text-align:right}
+.pass.live .cd{color:var(--now)}
+.chip{font:500 .64rem var(--f-body);letter-spacing:.06em;text-transform:uppercase;padding:1px 5px;border:1px solid currentColor;border-radius:2px}
+.chip.no{color:var(--warn)}
+.empty{font-size:.82rem;color:var(--muted);padding:8px 0;border-top:1px solid var(--line)}
+footer{font-size:.72rem;color:var(--muted);line-height:1.5;margin-top:auto}
+footer .old{color:var(--warn)}
+@media (max-width:860px){
+  .app{height:auto}
+  main{grid-template-columns:minmax(0,1fr)}
+  .chart{height:58vh;min-height:320px}
+  .clocks{margin-left:0;width:100%}
+}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+
+<div class="app">
+  <header>
+    <h1 id="ttl">__TITLE__</h1>
+    <div class="roi-tag">ROI <b id="roiName"></b> · <span id="tzName"></span></div>
+    <div class="clocks">
+      <div class="clock"><span>UTC</span><strong id="utc">--:--:--</strong></div>
+      <div class="clock"><span id="locLbl">ROI local</span><strong id="loc">--:--:--</strong></div>
+    </div>
+  </header>
+  <main>
+    <div class="chart" id="chart" aria-label="Map of satellite positions, ground tracks and swaths">
+      <canvas id="cv"></canvas>
+      <div class="views">
+        <button type="button" id="vWorld" aria-pressed="false">World</button>
+        <button type="button" id="vRoi" aria-pressed="true">ROI region</button>
+      </div>
+      <div class="legend"><span><i class="dash"></i>last 45 min</span><span><i></i>next 90 min</span><span><i class="roi"></i>ROI</span><span>shaded: night</span></div>
+    </div>
+    <aside>
+      <section><h2>Satellites now</h2><div id="sats"></div></section>
+      <section><h2>Next ROI overpasses</h2><div id="passes"></div></section>
+      <footer id="foot"></footer>
+    </aside>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/satellite.js@5.0.0/dist/satellite.min.js"></script>
+<script>
+"use strict";
+const P = /*__PAYLOAD__*/null;
+const LAND = /*__LAND__*/null;
+const D2R = Math.PI / 180, R2D = 180 / Math.PI, RE = 6371.0088;
+
+// ---------- data
+const sats = P.sats.map(s => ({...s, rec: satellite.twoline2satrec(s.line1, s.line2), on: true, track: null}));
+const passes = P.passes.map(p => ({...p, tin: new Date(p.in), tca: new Date(p.ca), tout: new Date(p.out)}));
+const roiRings = [];
+(function collect(g){
+  if (!g) return;
+  if (g.type === "FeatureCollection") g.features.forEach(f => collect(f.geometry));
+  else if (g.type === "Feature") collect(g.geometry);
+  else if (g.type === "Polygon") roiRings.push(...g.coordinates);
+  else if (g.type === "MultiPolygon") g.coordinates.forEach(p => roiRings.push(...p));
+  else if (g.type === "Point") roiRings.push([g.coordinates]);
+})(P.roi);
+const roiPts = roiRings.flat();
+const roiC = roiPts.reduce((a, p) => [a[0] + p[0] / roiPts.length, a[1] + p[1] / roiPts.length], [0, 0]);
+const landRings = LAND ? LAND.rings.map(r => { const o = []; for (let i = 0; i < r.length; i += 2) o.push([r[i] * LAND.scale, r[i + 1] * LAND.scale]); return o; }) : [];
+
+// ---------- orbit helpers
+function sub(rec, d){
+  const pv = satellite.propagate(rec, d);
+  if (!pv || !pv.position) return null;
+  const g = satellite.eciToGeodetic(pv.position, satellite.gstime(d));
+  return {lat: g.latitude * R2D, lon: g.longitude * R2D, alt: g.height};
+}
+function bearing(a, b){
+  const p1 = a.lat * D2R, p2 = b.lat * D2R, dl = (b.lon - a.lon) * D2R;
+  return Math.atan2(Math.sin(dl) * Math.cos(p2), Math.cos(p1) * Math.sin(p2) - Math.sin(p1) * Math.cos(p2) * Math.cos(dl)) * R2D;
+}
+function dest(lat, lon, az, km){
+  const d = km / RE, p1 = lat * D2R, l1 = lon * D2R, t = az * D2R;
+  const p2 = Math.asin(Math.sin(p1) * Math.cos(d) + Math.cos(p1) * Math.sin(d) * Math.cos(t));
+  const l2 = l1 + Math.atan2(Math.sin(t) * Math.sin(d) * Math.cos(p1), Math.cos(d) - Math.sin(p1) * Math.sin(p2));
+  return [((l2 * R2D + 540) % 360) - 180, p2 * R2D];
+}
+function subsolar(d){
+  const n = d.getTime() / 86400000 + 2440587.5 - 2451545.0;
+  const L = ((280.460 + 0.9856474 * n) % 360) * D2R, g = ((357.528 + 0.9856003 * n) % 360) * D2R;
+  const lam = L + 1.915 * D2R * Math.sin(g) + 0.020 * D2R * Math.sin(2 * g), eps = (23.439 - 4e-7 * n) * D2R;
+  const ra = Math.atan2(Math.cos(eps) * Math.sin(lam), Math.cos(lam)) * R2D, dec = Math.asin(Math.sin(eps) * Math.sin(lam)) * R2D;
+  const gmst = (280.46061837 + 360.98564736629 * n) % 360;
+  return {lat: dec, lon: ((ra - gmst + 540) % 360) - 180};
+}
+function computeTrack(s, now){
+  const pts = [];
+  for (let m = -45; m <= 90; m += 0.5){
+    const p = sub(s.rec, new Date(now.getTime() + m * 60000));
+    if (p) pts.push([p.lon, p.lat, m]);
+  }
+  s.track = pts;
+}
+function computeSwath(s, now){
+  const half = s.swath_km / 2, L = [], R = [];
+  let prev = null;
+  for (let sec = -180; sec <= 180; sec += 10){
+    const p = sub(s.rec, new Date(now.getTime() + sec * 1000)), q = sub(s.rec, new Date(now.getTime() + (sec + 1) * 1000));
+    if (!p || !q) continue;
+    const az = bearing(p, q);
+    L.push(dest(p.lat, p.lon, az - 90, half)); R.push(dest(p.lat, p.lon, az + 90, half));
+  }
+  return L.concat(R.reverse());
+}
+
+// ---------- view
+const cv = document.getElementById("cv"), ctx = cv.getContext("2d"), chart = document.getElementById("chart");
+const land = document.createElement("canvas"), lctx = land.getContext("2d");
+let W = 0, H = 0, DPR = 1, view = {cx: roiC[0], cy: roiC[1], k: 1}, landKey = "";
+let theme = {};
+function readTheme(){
+  const cs = getComputedStyle(document.documentElement);
+  ["ocean","land","coast","grid","night","roi","ink","muted","panel"].forEach(n => theme[n] = cs.getPropertyValue("--" + n).trim());
+  landKey = "";
+}
+function fitWorld(){ view = {cx: 0, cy: 0, k: Math.max(W / 360, H / 170)}; }
+function fitRoi(){ view = {cx: roiC[0], cy: Math.max(-70, Math.min(70, roiC[1])), k: Math.min(W / 50, H / 32)}; }
+function setMode(m){
+  document.getElementById("vWorld").setAttribute("aria-pressed", m === "world");
+  document.getElementById("vRoi").setAttribute("aria-pressed", m === "roi");
+  m === "world" ? fitWorld() : fitRoi(); landKey = ""; draw();
+}
+function resize(){
+  const r = chart.getBoundingClientRect(); DPR = window.devicePixelRatio || 1;
+  const first = W === 0;
+  W = Math.max(1, r.width); H = Math.max(1, r.height);
+  for (const c of [cv, land]){ c.width = Math.round(W * DPR); c.height = Math.round(H * DPR); }
+  if (first) fitRoi();
+  landKey = ""; draw();
+}
+const X = lon => (lon - view.cx) * view.k + W / 2, Y = lat => (view.cy - lat) * view.k + H / 2;
+function shifts(){ const span = W / view.k; const n = Math.ceil(span / 720) + 1; const o = []; for (let i = -n; i <= n; i++) o.push(i * 360); return o; }
+function unwrap(pts){ // keep consecutive longitudes continuous
+  const out = []; let off = 0, prev = null;
+  for (const p of pts){ if (prev !== null){ const d = p[0] - prev; if (d > 180) off -= 360; else if (d < -180) off += 360; } prev = p[0]; out.push([p[0] + off, p[1], p[2]]); }
+  return out;
+}
+function pathRing(c, ring, sh){ ring.forEach((p, i) => { const x = X(p[0] + sh), y = Y(p[1]); i ? c.lineTo(x, y) : c.moveTo(x, y); }); }
+
+function drawLand(){
+  const key = [W, H, view.cx.toFixed(3), view.cy.toFixed(3), view.k.toFixed(4), theme.land].join("|");
+  if (key === landKey) return; landKey = key;
+  lctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  lctx.fillStyle = theme.ocean; lctx.fillRect(0, 0, W, H);
+  lctx.strokeStyle = theme.grid; lctx.lineWidth = 1; lctx.beginPath();
+  const step = view.k > 20 ? 5 : view.k > 6 ? 10 : 30;
+  for (const sh of shifts()) for (let lon = -180; lon <= 180; lon += step){ lctx.moveTo(X(lon + sh), Y(90)); lctx.lineTo(X(lon + sh), Y(-90)); }
+  for (let lat = -90; lat <= 90; lat += step){ lctx.moveTo(0, Y(lat)); lctx.lineTo(W, Y(lat)); }
+  lctx.stroke();
+  lctx.fillStyle = theme.land; lctx.strokeStyle = theme.coast; lctx.lineWidth = 0.6;
+  for (const sh of shifts()){
+    lctx.beginPath(); landRings.forEach(r => { pathRing(lctx, r, sh); lctx.closePath(); });
+    lctx.fill("evenodd"); lctx.stroke();
+  }
+  // graticule labels
+  lctx.fillStyle = theme.muted; lctx.font = "10px " + getComputedStyle(document.body).getPropertyValue("--f-mono");
+  for (let lat = -90 + step; lat < 90; lat += step){ const y = Y(lat); if (y > 12 && y < H - 4) lctx.fillText((lat > 0 ? lat + "°N" : lat < 0 ? -lat + "°S" : "0°"), W - 34, y - 3); }
+}
+
+function drawNight(now){
+  const s = subsolar(now), dec = Math.abs(s.lat) < 1e-3 ? 1e-3 : s.lat, pole = dec > 0 ? -90 : 90;
+  ctx.fillStyle = theme.night;
+  for (const sh of shifts()){
+    ctx.beginPath(); ctx.moveTo(X(-180 + sh), Y(pole));
+    for (let lon = -180; lon <= 180; lon += 2){
+      const lat = Math.atan(-Math.cos((lon - s.lon) * D2R) / Math.tan(dec * D2R)) * R2D;
+      ctx.lineTo(X(lon + sh), Y(lat));
+    }
+    ctx.lineTo(X(180 + sh), Y(pole)); ctx.closePath(); ctx.fill();
+  }
+}
+
+function draw(){
+  if (!W) return;
+  const now = new Date();
+  drawLand();
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height);
+  ctx.drawImage(land, 0, 0);
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  drawNight(now);
+  const SH = shifts();
+  // ROI
+  ctx.strokeStyle = theme.roi; ctx.fillStyle = theme.roi; ctx.lineWidth = 2;
+  for (const sh of SH){
+    if (roiPts.length === 1){ ctx.beginPath(); ctx.arc(X(roiPts[0][0] + sh), Y(roiPts[0][1]), 5, 0, 7); ctx.fill(); continue; }
+    ctx.beginPath(); roiRings.forEach(r => { pathRing(ctx, r, sh); ctx.closePath(); });
+    ctx.globalAlpha = 0.18; ctx.fill(); ctx.globalAlpha = 1; ctx.stroke();
+    ctx.beginPath(); ctx.arc(X(roiC[0] + sh), Y(roiC[1]), 2.5, 0, 7); ctx.fill();
+  }
+  // tracks, swaths, markers
+  for (const s of sats){
+    if (!s.on || !s.track) continue;
+    const tr = unwrap(s.track), cur = sub(s.rec, now);
+    if (!cur) continue;
+    const curU = tr.reduce((a, p) => Math.abs(p[2]) < Math.abs(a[2]) ? p : a, tr[0]);
+    const lonOff = Math.round((curU[0] - cur.lon) / 360) * 360;
+    const sw = unwrap(computeSwath(s, now));
+    const swOff = Math.round((sw[0][0] - (curU[0])) / 360) * 360;
+    for (const sh of SH){
+      ctx.fillStyle = s.colour; ctx.globalAlpha = 0.22; ctx.beginPath(); pathRing(ctx, sw, sh - swOff); ctx.closePath(); ctx.fill(); ctx.globalAlpha = 1;
+      ctx.strokeStyle = s.colour; ctx.lineWidth = 1.4;
+      ctx.setLineDash([4, 5]); ctx.beginPath(); pathRing(ctx, tr.filter(p => p[2] <= 0), sh); ctx.stroke();
+      ctx.setLineDash([]); ctx.lineWidth = 2; ctx.beginPath(); pathRing(ctx, tr.filter(p => p[2] >= 0), sh); ctx.stroke();
+      const x = X(cur.lon + lonOff + sh), y = Y(cur.lat);
+      if (x < -40 || x > W + 40) continue;
+      ctx.beginPath(); ctx.arc(x, y, 6, 0, 7); ctx.fillStyle = s.colour; ctx.fill();
+      ctx.lineWidth = 2; ctx.strokeStyle = theme.panel; ctx.stroke();
+      ctx.font = "600 11px " + getComputedStyle(document.body).getPropertyValue("--f-body");
+      ctx.lineWidth = 3; ctx.strokeStyle = theme.panel; ctx.strokeText(s.name, x + 9, y + 4);
+      ctx.fillStyle = theme.ink; ctx.fillText(s.name, x + 9, y + 4);
+    }
+  }
+}
+
+// ---------- panel
+const fmtUTC = new Intl.DateTimeFormat("en-GB", {timeZone: "UTC", hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23"});
+const fmtLoc = new Intl.DateTimeFormat("en-GB", {timeZone: P.tz, hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23", timeZoneName: "short"});
+const fmtLocDay = new Intl.DateTimeFormat("en-GB", {timeZone: P.tz, weekday: "short", day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23"});
+const fmtUTCDay = new Intl.DateTimeFormat("en-GB", {timeZone: "UTC", day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23"});
+function countdown(ms){
+  const s = Math.max(0, Math.floor(ms / 1000)), d = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600), m = Math.floor(s % 3600 / 60), sec = s % 60;
+  const p = n => String(n).padStart(2, "0");
+  return d ? `${d}d ${p(h)}h ${p(m)}m` : h ? `${h}h ${p(m)}m ${p(sec)}s` : `${m}m ${p(sec)}s`;
+}
+function esc(t){ return String(t).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+
+const satBox = document.getElementById("sats");
+sats.forEach((s, i) => {
+  const b = document.createElement("button"); b.type = "button"; b.className = "sat"; b.id = "sat" + i;
+  b.setAttribute("aria-pressed", "true"); b.title = "Show or hide " + s.name;
+  b.innerHTML = `<span class="dot" style="background:${s.colour}"></span><span class="name">${esc(s.name)}</span><span class="dir"></span><span class="pos"></span>`;
+  b.addEventListener("click", () => { s.on = !s.on; b.setAttribute("aria-pressed", s.on); draw(); renderPasses(new Date()); });
+  satBox.appendChild(b); s.el = b;
+});
+
+function renderSats(now){
+  for (const s of sats){
+    const c = sub(s.rec, now), n = sub(s.rec, new Date(now.getTime() + 2000));
+    if (!c || !n) continue;
+    s.el.querySelector(".dir").textContent = n.lat > c.lat ? "↑ asc" : "↓ desc";
+    s.el.querySelector(".pos").textContent =
+      `${Math.abs(c.lat).toFixed(2).padStart(5)}°${c.lat >= 0 ? "N" : "S"}  ${Math.abs(c.lon).toFixed(2).padStart(6)}°${c.lon >= 0 ? "E" : "W"}  ${c.alt.toFixed(0)} km`;
+  }
+}
+function renderPasses(now){
+  const box = document.getElementById("passes");
+  const on = new Set(sats.filter(s => s.on).map(s => s.name));
+  const up = passes.filter(p => p.tout >= now && on.has(p.sat)).sort((a, b) => a.tin - b.tin).slice(0, 10);
+  if (!passes.length){ box.innerHTML = `<div class="empty">No overpass predictions were exported with this page. Pass <code>passes=</code> to <code>export_live_tracker_html()</code>.</div>`; return; }
+  if (!up.length){ box.innerHTML = `<div class="empty">No remaining predicted overpasses. Re-run the prediction notebook and re-export.</div>`; return; }
+  box.innerHTML = up.map(p => {
+    const s = sats.find(x => x.name === p.sat), live = now >= p.tin;
+    const plan = p.plan && p.plan.startsWith("not planned") ? `<span class="chip no">not in ESA plan</span>` : "";
+    return `<div class="pass${live ? " live" : ""}">
+      <div class="who"><span class="dot" style="background:${s ? s.colour : "#888"}"></span>${esc(p.sat)} ${plan}</div>
+      <div class="cd">${live ? "imaging now" : "in " + countdown(p.tin - now)}</div>
+      <div class="when">${fmtLocDay.format(p.tca)} local · ${fmtUTCDay.format(p.tca)} UTC</div>
+      <div class="meta">${Math.round(p.cov)}% of ROI · ${p.dir === "Descending" ? "desc" : "asc"}</div></div>`;
+  }).join("");
+}
+function renderFoot(now){
+  const ages = sats.map(s => { const a = (now - new Date(s.epoch)) / 86400000; return `<span class="${a > 7 ? "old" : ""}">${esc(s.name)} ${a.toFixed(1)} d</span>`; });
+  document.getElementById("foot").innerHTML =
+    `TLE age: ${ages.join(" · ")}<br>Positions propagated in your browser with SGP4. Swaths use nominal widths (MSI 290 km, OLI 185 km). ` +
+    `Predictions generated ${esc(P.generated.replace("T", " ").replace("Z", " UTC"))}; refresh TLEs and re-export when ages exceed a week.`;
+}
+
+// ---------- interaction
+let drag = null;
+chart.addEventListener("pointerdown", e => { if (e.target.closest(".views")) return; drag = {x: e.clientX, y: e.clientY, cx: view.cx, cy: view.cy}; chart.classList.add("dragging"); chart.setPointerCapture(e.pointerId); });
+chart.addEventListener("pointermove", e => { if (!drag) return; view.cx = drag.cx - (e.clientX - drag.x) / view.k; view.cy = Math.max(-85, Math.min(85, drag.cy + (e.clientY - drag.y) / view.k)); draw(); });
+const endDrag = () => { drag = null; chart.classList.remove("dragging"); };
+chart.addEventListener("pointerup", endDrag); chart.addEventListener("pointercancel", endDrag);
+chart.addEventListener("wheel", e => {
+  e.preventDefault();
+  const r = chart.getBoundingClientRect(), mx = e.clientX - r.left, my = e.clientY - r.top;
+  const lon = view.cx + (mx - W / 2) / view.k, lat = view.cy - (my - H / 2) / view.k;
+  view.k = Math.max(W / 720, Math.min(400, view.k * Math.exp(-e.deltaY * 0.0015)));
+  view.cx = lon - (mx - W / 2) / view.k; view.cy = Math.max(-85, Math.min(85, lat + (my - H / 2) / view.k)); draw();
+}, {passive: false});
+document.getElementById("vWorld").addEventListener("click", () => setMode("world"));
+document.getElementById("vRoi").addEventListener("click", () => setMode("roi"));
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { readTheme(); draw(); });
+new MutationObserver(() => { readTheme(); draw(); }).observe(document.documentElement, {attributes: true, attributeFilter: ["data-theme"]});
+new ResizeObserver(resize).observe(chart);
+
+// ---------- loop
+document.getElementById("roiName").textContent = P.roi_name;
+document.getElementById("tzName").textContent = P.tz;
+let lastTrack = 0;
+function tick(){
+  const now = new Date();
+  if (now - lastTrack > 15000){ sats.forEach(s => computeTrack(s, now)); lastTrack = now.getTime(); }
+  document.getElementById("utc").textContent = fmtUTC.format(now);
+  const parts = fmtLoc.formatToParts(now);
+  document.getElementById("loc").textContent = parts.filter(p => ["hour","minute","second","literal"].includes(p.type)).map(p => p.value).join("").trim();
+  document.getElementById("locLbl").textContent = "ROI local · " + (parts.find(p => p.type === "timeZoneName") || {}).value;
+  renderSats(now); renderPasses(now); renderFoot(now); draw();
+}
+readTheme();
+tick();
+setInterval(tick, 1000);
+</script>

@@ -1,0 +1,14 @@
+# Generated outputs
+OUTPUT/*
+!OUTPUT/.gitkeep
+
+# Cached orbital elements and ESA plans (refreshed at run time)
+DATA/TLE/*
+!DATA/TLE/.gitkeep
+DATA/KML/*
+!DATA/KML/.gitkeep
+
+# Python / Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

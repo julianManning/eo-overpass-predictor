@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "eo-overpass-predictor: swath-aware Landsat and Sentinel-2 overpass prediction with local-time reporting and live tracking"
+type: software
+authors:
+  - family-names: Manning
+    given-names: Julian
+    email: julian.manning@outlook.com
+    orcid: "https://orcid.org/0000-0003-4481-5474"
+# doi: add the Zenodo DOI after the first release is archived
+version: 1.0.0
+date-released: 2026-10-24
+license: MIT
+repository-code: "https://github.com/julianManning/eo-overpass-predictor"
+keywords:
+  - Landsat
+  - Sentinel-2
+  - overpass prediction
+  - SGP4
+  - TLE
+  - acquisition planning
+  - remote sensing
+  - earth observation
