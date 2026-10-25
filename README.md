@@ -5,8 +5,8 @@
 <table align="right">
   <tr>
     <td align="center">
-      <a href="https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2" target="_blank">
-        <img src="Example/IMG/Sentinel-2_mission.png" width="110" alt="Sentinel-2 mission">
+      <a href="Example/IMG/overpass_orbits_example.png" target="_blank">
+        <img src="Example/IMG/eo_overpass_logo.png" width="120" alt="Landsat and Sentinel-2 orbits and swaths over Australia">
       </a>
       <br>
       <b>👤 Julian Manning</b>
@@ -39,6 +39,10 @@ General-purpose trackers such as [n2yo.com](https://www.n2yo.com/) answer *when 
 Field campaigns, in-situ validation (water quality sampling, spectroradiometry, drone flights), and tasking decisions need a different answer: **on which date and at what local time will the instrument footprint cover my ROI, and how much of it?**
 
 This repository answers that question geometrically and, for Sentinel-2, against the mission plan.
+
+![Landsat and Sentinel-2 orbits and swaths over Australia](Example/IMG/overpass_orbits_example.png)
+
+*Rendered with this repository's orbit engine for 26 Oct 2026, 00:27 UTC, as Sentinel-2B images the Port Phillip Bay ROI (red square). Strips are instrument swaths accumulated over the previous five hours of daylit descending passes (Landsat blue, Sentinel-2 orange); the two rings are the shared orbital planes of each mission. Landsat 8 passes just west of the ROI at the same moment: close, but its swath does not cover it. Swaths are geometric — neither mission acquires open ocean by default.*
 
 ---
 
