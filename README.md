@@ -164,7 +164,7 @@ Open `p02_overpass_live_tracker.ipynb`. Run the tracker cell for a live ipyleafl
 ## ⚠️ Scope & Limitations
 
 * **Geometry, not guarantees.** A predicted pass means the sensor footprint covers the ROI. Delivery also depends on the mission plan, downlink and processing. Cloud cover is not forecast.
-* **Landsat plans are not cross-checked.** USGS acquires essentially all daytime land and near-coastal WRS-2 scenes but publishes no machine-readable plan comparable to ESA's.
+* **Landsat passes are not cross-checked.** Under its Long Term Acquisition Plan, USGS schedules >99% of daytime land and near-shore coastal scenes between 57°N and 57°S, and publishes daily maps in the [Landsat Acquisition Tool](https://landsat.usgs.gov/landsat_acq); that tool is not yet integrated here.
 * **Sentinel-2A** is in a temporary extension campaign (to 31 Dec 2026) with regional coverage only. Treat its geometric passes as candidates until the ESA plan confirms them.
 * **Nadir-looking optical sensors only.** The swath model is centred on the ground track. Side-looking SAR (e.g. Sentinel-1) would need an offset swath model; add an entry to `SATELLITE_CATALOGUE` only for nadir-centred instruments.
 * **Network access** to `celestrak.org` (or the TLE mirror) and, for the plan check, `sentinels.copernicus.eu` is needed at run time. The standalone tracker loads `satellite.js` from jsDelivr.

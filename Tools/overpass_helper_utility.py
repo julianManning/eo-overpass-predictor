@@ -1138,18 +1138,41 @@ def fetch_s2_acquisition_plans(
         url = href if href.startswith("http") else ESA_BASE_URL + href
         links[f"{sat.lower()}_mp_acq__kml_{a.lower()}_{b.lower()}"] = url
 
-    paths = []
+    paths, failed = [], []
     for stem, url in sorted(links.items()):
         path = plan_dir / f"{stem}.kml"
-        if not path.exists():
-            r = requests.get(url, timeout=timeout)
-            r.raise_for_status()
-            path.write_bytes(r.content)
+        if path.exists():
             if verbose:
-                print(f"⬇ {path.name} ({len(r.content) / 1e6:.1f} MB)")
-        elif verbose:
-            print(f"✔ {path.name} (cached)")
-        paths.append(path)
+                print(f"✔ {path.name} (cached)")
+            paths.append(path)
+            continue
+        # ESA links occasionally carry a broken suffix or need ?download=true — try variants,
+        # and never let one bad link stop the remaining units from downloading.
+        base = url.split("?")[0]
+        plain = f"{ESA_BASE_URL}/documents/d/sentinel/{stem}"
+        candidates = list(dict.fromkeys([url, base + "?download=true", plain, plain + "?download=true"]))
+        last_err = None
+        for cand in candidates:
+            try:
+                r = requests.get(cand, timeout=timeout)
+                r.raise_for_status()
+                if b"<kml" not in r.content[:2000] and r.content[:2] != b"PK":
+                    raise ValueError("response is not KML/KMZ")
+                path.write_bytes(r.content)
+                if verbose:
+                    print(f"⬇ {path.name} ({len(r.content) / 1e6:.1f} MB)")
+                paths.append(path)
+                break
+            except Exception as exc:
+                last_err = exc
+        else:
+            failed.append(stem)
+            if verbose:
+                print(f"\x1b[93m⚠ {stem}: download failed on ESA's link ({type(last_err).__name__}). "
+                      f"Skipping; save it manually into {plan_dir} if the page link is fixed.\x1b[0m")
+    if failed and verbose:
+        print(f"\x1b[93m⚠ {len(failed)} plan file(s) unavailable — passes they cover will show "
+              f"'no plan loaded' (or rely on an older overlapping plan).\x1b[0m")
     if not paths and verbose:
         print("\x1b[93m⚠ No acquisition-plan KMLs found for this window "
               "(plans are typically published ~2 weeks ahead).\x1b[0m")
