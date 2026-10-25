@@ -1,5 +1,7 @@
 # 🧑‍💻 eo-overpass-predictor
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23629976.svg)](https://doi.org/10.5281/zenodo.23629976)
+
 <table align="right">
   <tr>
     <td align="center">
@@ -179,7 +181,7 @@ Open `p02_overpass_live_tracker.ipynb`. Run the tracker cell for a live ipyleafl
 * **[cdse-sentinel1-pipeline](https://github.com/julianManning/cdse-sentinel1-pipeline)** ([DOI: 10.5281/zenodo.23595216](https://doi.org/10.5281/zenodo.23595216)) — the companion workflow for Sentinel-1 SAR.
 
 ## 📚 Citation & Data Attribution
-* **Citing this software**: use **"Cite this repository"** in the GitHub sidebar (generated from `CITATION.cff`).
+* **Citing this software**: use **"Cite this repository"** in the GitHub sidebar (generated from `CITATION.cff`), or cite the Zenodo archive: **[doi:10.5281/zenodo.23629976](https://doi.org/10.5281/zenodo.23629976)**.
 * **Orbital elements**: TLEs courtesy of [CelesTrak](https://celestrak.org/) (data from the US Space Force 18th/19th Space Defense Squadrons via space-track.org).
 * **Acquisition plans**: © ESA, from the [Sentinel-2 acquisition plans](https://sentinels.copernicus.eu/copernicus/sentinel-2/acquisition-plans) page.
 * **Coastlines**: [Natural Earth](https://www.naturalearthdata.com/) 1:50m land (public domain), via world-atlas.
