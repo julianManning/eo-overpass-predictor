@@ -26,10 +26,7 @@
 
 
 A notebook-driven Python toolkit that tells you **when Landsat 8/9 and Sentinel-2A/B/C will image your Region of Interest**. It propagates current orbital elements with SGP4, intersects each satellite's **instrument swath** with your ROI, and reports every overpass in **UTC and in the ROI's own local time** (DST-aware) as CSV. It also provides an n2yo-style **live tracker**, both inside Jupyter and as a standalone web page, and an optional cross-check against **ESA's published Sentinel-2 acquisition plans**.
-
-
 <br clear="right">
-
 > 🧩 **Prefer QGIS?** This workflow is also available as a QGIS plugin: [eo-overpass-qgis](https://github.com/julianManning/eo-overpass-qgis) ([DOI: 10.5281/zenodo.23884833](https://doi.org/10.5281/zenodo.23884833)). Same method, with a printable field-sheet PDF and a live tracker dock inside QGIS.
 
 ---
