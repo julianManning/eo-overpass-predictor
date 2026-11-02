@@ -21,3 +21,11 @@ keywords:
   - acquisition planning
   - remote sensing
   - earth observation
+references:
+  - type: software
+    title: "eo-overpass-qgis: QGIS plugin for swath-aware Landsat and Sentinel-2 overpass prediction, field packs and live tracking"
+    authors:
+      - family-names: Manning
+        given-names: Julian
+    doi: 10.5281/zenodo.23884833
+    repository-code: "https://github.com/julianManning/eo-overpass-qgis"
