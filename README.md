@@ -5,8 +5,8 @@
 <table align="right">
   <tr>
     <td align="center">
-      <a href="Example/IMG/overpass_orbits_example.png" target="_blank">
-        <img src="Example/IMG/eo_overpass_logo.png" width="120" alt="Landsat and Sentinel-2 orbits and swaths over Australia">
+      <a href="Example/IMG/eo_overpass_badge.svg" target="_blank">
+        <img src="Example/IMG/eo_overpass_badge.svg" width="120" alt="EO Overpass Predictor logo">
       </a>
       <br>
       <b>👤 Julian Manning</b>
