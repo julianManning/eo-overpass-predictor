@@ -30,6 +30,8 @@ A notebook-driven Python toolkit that tells you **when Landsat 8/9 and Sentinel-
 
 <br clear="right">
 
+> 🧩 **Prefer QGIS?** This workflow is also available as a QGIS plugin: [eo-overpass-qgis](https://github.com/julianManning/eo-overpass-qgis) ([DOI: 10.5281/zenodo.23884833](https://doi.org/10.5281/zenodo.23884833)). Same method, with a printable field-sheet PDF and a live tracker dock inside QGIS.
+
 ---
 
 ## 🛰️ The Problem: "Above the Horizon" Is Not "Over My Site"
