@@ -40,9 +40,9 @@ Field campaigns, in-situ validation (water quality sampling, spectroradiometry, 
 
 This repository answers that question geometrically and, for Sentinel-2, against the mission plan.
 
-![Landsat and Sentinel-2 orbits and swaths over Australia](Example/IMG/overpass_orbits_example.png)
+![Landsat 8 and Sentinel-2 swaths over Australia and Port Phillip Bay](Example/IMG/overpass_orbits_example.svg)
 
-*Rendered with this repository's orbit engine for 26 Oct 2026, 00:27 UTC, as Sentinel-2B images the Port Phillip Bay ROI (red square). Strips are instrument swaths accumulated over the previous five hours of daylit descending passes (Landsat blue, Sentinel-2 orange); the two rings are the shared orbital planes of each mission. Landsat 8 passes just west of the ROI at the same moment: close, but its swath does not cover it. Swaths are geometric — neither mission acquires open ocean by default.*
+*Computed with this repository's orbit engine for 26 Oct 2026, 00:27:30 UTC (11:27:30 AEDT), as Sentinel-2B passes over the Port Phillip Bay ROI. **Left:** swaths of the current and three previous daylit descending passes of Sentinel-2A and -2B (orange) and Landsat 8 (light blue), with ground tracks dashed. **Right:** the same moment around the ROI. Sentinel-2B's 290 km swath covers it, while Landsat 8 passes 40 s later about 330 km further west, so its 185 km swath misses it. Overhead is not the same as imaged. Swaths are geometric: neither mission acquires open ocean by default.*
 
 ---
 
