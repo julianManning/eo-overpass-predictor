@@ -1,0 +1,4 @@
+# Keep test fixtures and reference outputs byte-identical on every OS
+# (stops Git converting line endings on Windows checkouts).
+tests/fixtures/** -text
+tests/reference/** -text

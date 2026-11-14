@@ -1,0 +1,34 @@
+{
+  "generated_from": "Tools/overpass_helper_utility.py",
+  "helper_sha256": "6fd0587a436d9ac725d7a051df5f4cdade0a78b3a0659932ffa5ce8fbdf2a344",
+  "start_utc": "2026-10-24 00:00",
+  "days": 16,
+  "timezone": "Australia/Melbourne",
+  "predict_kwargs": {
+    "daytime_descending_only": true,
+    "min_sun_elevation_deg": 0.0,
+    "min_roi_coverage_pct": 0.0,
+    "coarse_step_s": 30.0,
+    "fine_step_s": 1.0
+  },
+  "roi_cases": {
+    "polygon": "tests/fixtures/roi/Port_Phillip_Bay_Extent_EPSG_32755.shp",
+    "point": "(144.96, -37.82)",
+    "bbox": "(144.35, -38.35, 145.15, -37.8)"
+  },
+  "passes_per_case": {
+    "polygon": 12,
+    "point": 12,
+    "bbox": 12
+  },
+  "python": "3.13.18",
+  "packages": {
+    "skyfield": "1.55",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "geopandas": "1.2.0",
+    "shapely": "2.2.0",
+    "pyproj": "3.8.0",
+    "timezonefinder": "9.2.0"
+  }
+}
