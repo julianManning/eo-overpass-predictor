@@ -1,0 +1,33 @@
+# Runs the test suite on Linux, Windows and macOS for every push and pull request
+# to main or dev. Uses the conda environment the notebooks document (Tools/env.base.yml).
+name: tests
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+  workflow_dispatch:
+
+jobs:
+  pytest:
+    name: pytest (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false          # finish all three OSes even if one fails
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    defaults:
+      run:
+        shell: bash -el {0}     # login shell so the conda environment is active
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-file: Tools/env.base.yml
+          create-args: pytest
+          cache-environment: true
+
+      - name: Run tests
+        run: python -m pytest tests -v -p no:cacheprovider

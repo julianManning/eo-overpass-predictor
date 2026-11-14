@@ -1,0 +1,983 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+   <Document>
+      <name>S2 Planned Observations from 20261015T120000 to 20261102T150000</name>
+      <Style id="NOBS_NOMINAL">
+         <LineStyle>
+            <color>FF00FF00</color>
+            <width>2</width>
+         </LineStyle>
+         <PolyStyle>
+            <color>4000FF00</color>
+            <fill>true</fill>
+         </PolyStyle>
+      </Style>
+      <Style id="NOBS_NRT">
+         <LineStyle>
+            <color>FF00FF7F</color>
+            <width>2</width>
+         </LineStyle>
+         <PolyStyle>
+            <color>4000FF7F</color>
+            <fill>true</fill>
+         </PolyStyle>
+      </Style>
+      <Style id="NOBS_RT">
+         <LineStyle>
+            <color>FF00FFFF</color>
+            <width>2</width>
+         </LineStyle>
+         <PolyStyle>
+            <color>4000FFFF</color>
+            <fill>true</fill>
+         </PolyStyle>
+      </Style>
+      <Style id="NOBS_NOT_RECORDING">
+         <LineStyle>
+            <color>FF0000FF</color>
+            <width>2</width>
+         </LineStyle>
+         <PolyStyle>
+            <color>400000FF</color>
+            <fill>true</fill>
+         </PolyStyle>
+      </Style>
+      <Style id="SUN">
+         <LineStyle>
+            <color>FFFFFFFF</color>
+            <width>2</width>
+         </LineStyle>
+         <PolyStyle>
+            <color>40FFFFFF</color>
+            <fill>true</fill>
+         </PolyStyle>
+      </Style>
+      <Style id="VIC">
+         <LineStyle>
+            <color>FFFF00FF</color>
+            <width>2</width>
+         </LineStyle>
+         <PolyStyle>
+            <color>40FF00FF</color>
+            <fill>true</fill>
+         </PolyStyle>
+      </Style>
+      <Style id="DARK-O">
+         <LineStyle>
+            <color>FF7F7F7F</color>
+            <width>2</width>
+         </LineStyle>
+         <PolyStyle>
+            <color>407F7F7F</color>
+            <fill>true</fill>
+         </PolyStyle>
+      </Style>
+      <Style id="DARK-C">
+         <LineStyle>
+            <color>FF000000</color>
+            <width>2</width>
+         </LineStyle>
+         <PolyStyle>
+            <color>40000000</color>
+            <fill>true</fill>
+         </PolyStyle>
+      </Style>
+      <Style id="RAW">
+         <LineStyle>
+            <color>FFFF0000</color>
+            <width>2</width>
+         </LineStyle>
+         <PolyStyle>
+            <color>40FF0000</color>
+            <fill>true</fill>
+         </PolyStyle>
+      </Style>
+      <Style id="TEST">
+         <LineStyle>
+            <color>FFFFFF00</color>
+            <width>2</width>
+         </LineStyle>
+         <PolyStyle>
+            <color>40FFFF00</color>
+            <fill>true</fill>
+         </PolyStyle>
+      </Style>
+      <Style id="MSMOON">
+         <LineStyle>
+            <color>FFFFFF00</color>
+            <width>2</width>
+         </LineStyle>
+         <PolyStyle>
+            <color>40FFFF00</color>
+            <fill>true</fill>
+         </PolyStyle>
+      </Style>
+      <Folder>
+         <name>S2C</name>
+         <Folder>
+            <name>NOBS</name>
+            <Folder>
+               <name>NOMINAL</name>
+<Placemark>
+                  <name>11025-5</name>
+                  <visibility>0</visibility>
+                  <TimeSpan>
+                     <begin>2026-10-15T23:35:02.842</begin>
+                     <end>2026-10-15T23:35:53.354</end>
+                  </TimeSpan>
+                  <styleUrl>NOBS_NOMINAL</styleUrl>
+                  <ExtendedData>
+                     <Data name="ID">
+                        <value>11025-5</value>
+                     </Data>
+                     <Data name="Mode">
+                        <value>NOBS</value>
+                     </Data>
+                     <Data name="ObservationTimeStart">
+                        <value>2026-10-15T23:35:02.842</value>
+                     </Data>
+                     <Data name="ObservationTimeStop">
+                        <value>2026-10-15T23:35:53.354</value>
+                     </Data>
+                     <Data name="ObservationDuration">
+                        <value>50512</value>
+                     </Data>
+                     <Data name="OrbitAbsolute">
+                        <value>11025</value>
+                     </Data>
+                     <Data name="OrbitRelative">
+                        <value>44</value>
+                     </Data>
+                     <Data name="Scenes">
+                        <value>14</value>
+                     </Data>
+                  </ExtendedData>
+                  <Polygon>
+                     <outerBoundaryIs>
+                        <LinearRing>
+                           <coordinates>159.09861124939914,-29.038147687434652,0 157.64642205158185,-28.729544790672808,0 156.8042821141351,-31.64129366152121,0 158.30082202150948,-31.955559266582178,0 159.8076840805196,-32.25221808712734,0 160.55959249682167,-29.33109835446404,0 159.09861124939914,-29.038147687434652,0</coordinates>
+                        </LinearRing>
+                     </outerBoundaryIs>
+                  </Polygon>
+               </Placemark>
+               <Placemark>
+                  <name>11026-5</name>
+                  <visibility>0</visibility>
+                  <TimeSpan>
+                     <begin>2026-10-16T01:07:50.549</begin>
+                     <end>2026-10-16T01:17:02.573</end>
+                  </TimeSpan>
+                  <styleUrl>NOBS_NOMINAL</styleUrl>
+                  <ExtendedData>
+                     <Data name="ID">
+                        <value>11026-5</value>
+                     </Data>
+                     <Data name="Mode">
+                        <value>NOBS</value>
+                     </Data>
+                     <Data name="ObservationTimeStart">
+                        <value>2026-10-16T01:07:50.549</value>
+                     </Data>
+                     <Data name="ObservationTimeStop">
+                        <value>2026-10-16T01:17:02.573</value>
+                     </Data>
+                     <Data name="ObservationDuration">
+                        <value>552024</value>
+                     </Data>
+                     <Data name="OrbitAbsolute">
+                        <value>11026</value>
+                     </Data>
+                     <Data name="OrbitRelative">
+                        <value>45</value>
+                     </Data>
+                     <Data name="Scenes">
+                        <value>153</value>
+                     </Data>
+                  </ExtendedData>
+                  <Polygon>
+                     <outerBoundaryIs>
+                        <LinearRing>
+                           <coordinates>140.52254543081267,-0.9828072249705166,0 139.25727582883385,-0.7004524347091486,0 138.4684872770978,-4.258045912165063,0 137.66948699679662,-7.813807752830865,0 136.85585792386078,-11.36701626887325,0 136.02279485041345,-14.916926718589226,0 135.1649383256606,-18.46276301323884,0 134.27617246551904,-22.003705676124362,0 133.3493701864029,-25.538874499600038,0 132.37606287994524,-29.06730375013373,0 131.34600152364985,-32.587906841222214,0 131.14801440799408,-33.239083634870205,0 132.67166217261502,-33.5568396953605,0 134.20658166219306,-33.85586382005718,0 134.38157168330287,-33.20223460373866,0 135.2990610581981,-29.669865104567727,0 136.17745549067044,-26.131832342935454,0 137.02493129652277,-22.588861462193176,0 137.84832708311146,-19.041636017147837,0 138.6534972484097,-15.490817259367281,0 139.44557929647164,-11.937057331467122,0 140.22920253641823,-8.381008251827167,0 141.00865733969178,-4.823328039043583,0 141.7880388246244,-1.2646850002165564,0 140.52254543081267,-0.9828072249705166,0</coordinates>
+                        </LinearRing>
+                     </outerBoundaryIs>
+                  </Polygon>
+               </Placemark>
+               <Placemark>
+                  <name>11040-4</name>
+                  <visibility>0</visibility>
+                  <TimeSpan>
+                     <begin>2026-10-17T00:37:27.858</begin>
+                     <end>2026-10-17T00:48:10.082</end>
+                  </TimeSpan>
+                  <styleUrl>NOBS_NOMINAL</styleUrl>
+                  <ExtendedData>
+                     <Data name="ID">
+                        <value>11040-4</value>
+                     </Data>
+                     <Data name="Mode">
+                        <value>NOBS</value>
+                     </Data>
+                     <Data name="ObservationTimeStart">
+                        <value>2026-10-17T00:37:27.858</value>
+                     </Data>
+                     <Data name="ObservationTimeStop">
+                        <value>2026-10-17T00:48:10.082</value>
+                     </Data>
+                     <Data name="ObservationDuration">
+                        <value>642224</value>
+                     </Data>
+                     <Data name="OrbitAbsolute">
+                        <value>11040</value>
+                     </Data>
+                     <Data name="OrbitRelative">
+                        <value>59</value>
+                     </Data>
+                     <Data name="Scenes">
+                        <value>178</value>
+                     </Data>
+                  </ExtendedData>
+                  <Polygon>
+                     <outerBoundaryIs>
+                        <LinearRing>
+                           <coordinates>148.20688253473585,-0.3834108990892453,0 146.94184405823557,-0.10124822525163837,0 146.1543601541338,-3.6590804545768623,0 145.35738046389346,-7.2152007429504135,0 144.54653878613013,-10.768890666331204,0 143.71710612009014,-14.319409861771934,0 142.8638293379177,-17.865988241995172,0 141.98073609346056,-21.407814681813708,0 141.0608902987079,-24.944020701247076,0 140.0960765116753,-28.473657100191424,0 139.0763822138846,-31.995660691239195,0 137.98963564903227,-35.508806854744535,0 137.1945907217597,-37.92194766068976,0 138.81059479247955,-38.25180737130994,0 140.44124382545792,-38.559384427491665,0 141.1341428733472,-36.13489603818524,0 142.09165426871397,-32.60783725156769,0 143.0019177388981,-29.07446079356749,0 143.8745752720076,-25.535547152839737,0 144.71754838032578,-21.99181278322348,0 145.53748796361165,-18.44393633580782,0 146.34011087745117,-14.89257673858838,0 147.13045571863736,-11.33838557819435,0 147.91308372277317,-7.782015517093872,0 148.69224284932406,-4.224126043730999,0 149.47200827584794,-0.6653875372509969,0 148.20688253473585,-0.3834108990892453,0</coordinates>
+                        </LinearRing>
+                     </outerBoundaryIs>
+                  </Polygon>
+               </Placemark>
+               <Placemark>
+                  <name>11054-6</name>
+                  <visibility>0</visibility>
+                  <TimeSpan>
+                     <begin>2026-10-18T00:11:35.198</begin>
+                     <end>2026-10-18T00:19:31.454</end>
+                  </TimeSpan>
+                  <styleUrl>NOBS_NOMINAL</styleUrl>
+                  <ExtendedData>
+                     <Data name="ID">
+                        <value>11054-6</value>
+                     </Data>
+                     <Data name="Mode">
+                        <value>NOBS</value>
+                     </Data>
+                     <Data name="ObservationTimeStart">
+                        <value>2026-10-18T00:11:35.198</value>
+                     </Data>
+                     <Data name="ObservationTimeStop">
+                        <value>2026-10-18T00:19:31.454</value>
+                     </Data>
+                     <Data name="ObservationDuration">
+                        <value>476256</value>
+                     </Data>
+                     <Data name="OrbitAbsolute">
+                        <value>11054</value>
+                     </Data>
+                     <Data name="OrbitRelative">
+                        <value>73</value>
+                     </Data>
+                     <Data name="Scenes">
+                        <value>132</value>
+                     </Data>
+                  </ExtendedData>
+                  <Polygon>
+                     <outerBoundaryIs>
+                        <LinearRing>
+                           <coordinates>152.30638295111433,-15.789059437641438,0 150.98908215588952,-15.497788049828307,0 150.12660682427656,-19.042880599495298,0 149.2321320721637,-22.582940106829515,0 148.29833619156494,-26.117074291095385,0 147.31649258585915,-29.644300381273624,0 146.27600898654237,-33.163507680479015,0 145.1638082602832,-36.67340425939923,0 143.96343299847518,-40.17244016455112,0 142.75988576632204,-43.388787109944715,0 144.51314101035905,-43.737309257537895,0 146.28660317993373,-44.05881056001605,0 147.31652932364418,-40.822015831427166,0 148.3561498080525,-37.304769881903034,0 149.3318629735386,-33.779998035530255,0 150.25664976954195,-30.2486291900536,0 151.1408446092675,-26.711472603075688,0 151.99288451075074,-23.16926262615084,0 152.81980012662382,-19.62268811156514,0 153.62758681140045,-16.07241292725924,0 152.30638295111433,-15.789059437641438,0</coordinates>
+                        </LinearRing>
+                     </outerBoundaryIs>
+                  </Polygon>
+               </Placemark>
+               <Placemark>
+                  <name>11068-4</name>
+                  <visibility>0</visibility>
+                  <TimeSpan>
+                     <begin>2026-10-18T23:38:39.481</begin>
+                     <end>2026-10-18T23:45:59.657</end>
+                  </TimeSpan>
+                  <styleUrl>NOBS_NOMINAL</styleUrl>
+                  <ExtendedData>
+                     <Data name="ID">
+                        <value>11068-4</value>
+                     </Data>
+                     <Data name="Mode">
+                        <value>NOBS</value>
+                     </Data>
+                     <Data name="ObservationTimeStart">
+                        <value>2026-10-18T23:38:39.481</value>
+                     </Data>
+                     <Data name="ObservationTimeStop">
+                        <value>2026-10-18T23:45:59.657</value>
+                     </Data>
+                     <Data name="ObservationDuration">
+                        <value>440176</value>
+                     </Data>
+                     <Data name="OrbitAbsolute">
+                        <value>11068</value>
+                     </Data>
+                     <Data name="OrbitRelative">
+                        <value>87</value>
+                     </Data>
+                     <Data name="Scenes">
+                        <value>122</value>
+                     </Data>
+                  </ExtendedData>
+                  <Polygon>
+                     <outerBoundaryIs>
+                        <LinearRing>
+                           <coordinates>162.04496025672987,-6.124795288423985,0 160.7718685486361,-5.840287357106419,0 159.96692433654607,-9.395003989413695,0 159.14526987900132,-12.946838697527424,0 158.3018773369682,-16.4950343785667,0 157.43107838961018,-20.038797579400658,0 156.52634262969846,-23.577284356077154,0 155.5799925127236,-27.109580085350917,0 154.5828295841067,-30.634670436198515,0 154.25008748100672,-31.764863997677146,0 155.74865268563812,-32.07938943087975,0 157.2576104597323,-32.376222415714096,0 157.55359506941284,-31.242175128215674,0 158.44827171030883,-27.706568894863985,0 159.30858353168222,-24.165708585592146,0 160.14191410681454,-20.620293391202964,0 160.9545182520451,-17.070992516273687,0 161.75182361888798,-13.518460809070152,0 162.538664306431,-9.963349402587095,0 163.31946483150054,-6.406313010715785,0 162.04496025672987,-6.124795288423985,0</coordinates>
+                        </LinearRing>
+                     </outerBoundaryIs>
+                  </Polygon>
+               </Placemark>
+               <Placemark>
+                  <name>11083-3</name>
+                  <visibility>0</visibility>
+                  <TimeSpan>
+                     <begin>2026-10-20T00:47:29.288</begin>
+                     <end>2026-10-20T00:57:46.256</end>
+                  </TimeSpan>
+                  <styleUrl>NOBS_NOMINAL</styleUrl>
+                  <ExtendedData>
+                     <Data name="ID">
+                        <value>11083-3</value>
+                     </Data>
+                     <Data name="Mode">
+                        <value>NOBS</value>
+                     </Data>
+                     <Data name="ObservationTimeStart">
+                        <value>2026-10-20T00:47:29.288</value>
+                     </Data>
+                     <Data name="ObservationTimeStop">
+                        <value>2026-10-20T00:57:46.256</value>
+                     </Data>
+                     <Data name="ObservationDuration">
+                        <value>616968</value>
+                     </Data>
+                     <Data name="OrbitAbsolute">
+                        <value>11083</value>
+                     </Data>
+                     <Data name="OrbitRelative">
+                        <value>102</value>
+                     </Data>
+                     <Data name="Scenes">
+                        <value>171</value>
+                     </Data>
+                  </ExtendedData>
+                  <Polygon>
+                     <outerBoundaryIs>
+                        <LinearRing>
+                           <coordinates>145.72550161287472,-0.21932601508064592,0 144.46049901947734,0.06278640683997114,0 143.6733539822312,-3.4951080608790384,0 142.87690658036277,-7.051323286801487,0 142.06680384364725,-10.605141696203761,0 141.23833713315122,-14.155823939693173,0 140.38628415041248,-17.702601119252694,0 139.50471030123896,-21.24466489147073,0 138.58673026885583,-24.781149904204124,0 137.62419591432644,-28.311111369534384,0 136.60728413337614,-31.833492318388164,0 135.52393958428667,-35.34707691071541,0 135.22088604596306,-36.28575890894999,0 136.80227688484027,-36.611041539343944,0 138.39701941015852,-36.9153286730967,0 138.662021005968,-35.972461858021425,0 139.61710630139677,-32.445093107157575,0 140.52543068101758,-28.91144460560041,0 141.39654984616578,-25.37229325880271,0 142.23831765420107,-21.82835322636473,0 143.0573351677492,-18.280301858036125,0 143.8592827645653,-14.728797477003543,0 144.64917921134847,-11.174491479266093,0 145.4315604699887,-7.618036769360172,0 146.2106619773894,-4.060093291867005,0 146.99055412126847,-0.501332021144988,0 145.72550161287472,-0.21932601508064592,0</coordinates>
+                        </LinearRing>
+                     </outerBoundaryIs>
+                  </Polygon>
+               </Placemark>
+               <Placemark>
+                  <name>11097-5</name>
+                  <visibility>0</visibility>
+                  <TimeSpan>
+                     <begin>2026-10-21T00:21:19.572</begin>
+                     <end>2026-10-21T00:29:01.396</end>
+                  </TimeSpan>
+                  <styleUrl>NOBS_NOMINAL</styleUrl>
+                  <ExtendedData>
+                     <Data name="ID">
+                        <value>11097-5</value>
+                     </Data>
+                     <Data name="Mode">
+                        <value>NOBS</value>
+                     </Data>
+                     <Data name="ObservationTimeStart">
+                        <value>2026-10-21T00:21:19.572</value>
+                     </Data>
+                     <Data name="ObservationTimeStop">
+                        <value>2026-10-21T00:29:01.396</value>
+                     </Data>
+                     <Data name="ObservationDuration">
+                        <value>461824</value>
+                     </Data>
+                     <Data name="OrbitAbsolute">
+                        <value>11097</value>
+                     </Data>
+                     <Data name="OrbitRelative">
+                        <value>116</value>
+                     </Data>
+                     <Data name="Scenes">
+                        <value>128</value>
+                     </Data>
+                  </ExtendedData>
+                  <Polygon>
+                     <outerBoundaryIs>
+                        <LinearRing>
+                           <coordinates>150.06034796474316,-14.615891945171505,0 148.75059183638297,-14.325656011843527,0 147.89726811798693,-17.8722267415259,0 147.01411671494884,-21.414044060998314,0 146.09419959238352,-24.950239373282816,0 145.12929872804057,-28.47986331222006,0 144.10949817504982,-32.00185245573367,0 143.02261916815155,-35.51498182655212,0 141.85344763186376,-39.01779714380892,0 140.99926641192334,-41.39955542082465,0 142.6983841861962,-41.74061729192318,0 144.41542488267058,-42.05646796066434,0 145.15049997742133,-39.660942693415194,0 146.16737216384763,-36.14109799988145,0 147.12498026464135,-32.614051173215536,0 148.03531733811062,-29.08068510638244,0 148.9080332502378,-25.541780557043477,0 149.75105210079974,-21.998054063141783,0 150.57102669507483,-18.45018432261677,0 151.3736752835296,-14.898830283926802,0 150.06034796474316,-14.615891945171505,0</coordinates>
+                        </LinearRing>
+                     </outerBoundaryIs>
+                  </Polygon>
+               </Placemark>
+               <Placemark>
+                  <name>11111-8</name>
+                  <visibility>0</visibility>
+                  <TimeSpan>
+                     <begin>2026-10-21T23:52:55.085</begin>
+                     <end>2026-10-21T23:59:31.965</end>
+                  </TimeSpan>
+                  <styleUrl>NOBS_NOMINAL</styleUrl>
+                  <ExtendedData>
+                     <Data name="ID">
+                        <value>11111-8</value>
+                     </Data>
+                     <Data name="Mode">
+                        <value>NOBS</value>
+                     </Data>
+                     <Data name="ObservationTimeStart">
+                        <value>2026-10-21T23:52:55.085</value>
+                     </Data>
+                     <Data name="ObservationTimeStop">
+                        <value>2026-10-21T23:59:31.965</value>
+                     </Data>
+                     <Data name="ObservationDuration">
+                        <value>396880</value>
+                     </Data>
+                     <Data name="OrbitAbsolute">
+                        <value>11111</value>
+                     </Data>
+                     <Data name="OrbitRelative">
+                        <value>130</value>
+                     </Data>
+                     <Data name="Scenes">
+                        <value>110</value>
+                     </Data>
+                  </ExtendedData>
+                  <Polygon>
+                     <outerBoundaryIs>
+                        <LinearRing>
+                           <coordinates>156.1033047108324,-21.008768525677286,0 154.74439755813594,-20.712027054307395,0 153.8323809456877,-24.249409482275695,0 152.87713237851432,-27.780416751101335,0 151.8691120256984,-31.304011402492865,0 150.79664350178015,-34.819005216305726,0 149.6451814790275,-38.32399586686185,0 148.3962823361983,-41.81727528964466,0 147.59123774604058,-43.905012620086445,0 149.35941474113494,-44.255613710699954,0 151.14845073008817,-44.57870645196817,0 151.83478820333755,-42.47681194846255,0 152.91002594492355,-38.96348462341945,0 153.9140515270796,-35.442134609292694,0 154.86140370843768,-31.9137678008035,0 155.76356438862024,-28.379243532057558,0 156.62979838144574,-24.839327171059075,0 157.46774629455288,-21.294725898997726,0 156.1033047108324,-21.008768525677286,0</coordinates>
+                        </LinearRing>
+                     </outerBoundaryIs>
+                  </Polygon>
+               </Placemark>
+               <Placemark>
+                  <name>11126-4</name>
+                  <visibility>0</visibility>
+                  <TimeSpan>
+                     <begin>2026-10-23T00:57:31.204</begin>
+                     <end>2026-10-23T01:07:37.348</end>
+                  </TimeSpan>
+                  <styleUrl>NOBS_NOMINAL</styleUrl>
+                  <ExtendedData>
+                     <Data name="ID">
+                        <value>11126-4</value>
+                     </Data>
+                     <Data name="Mode">
+                        <value>NOBS</value>
+                     </Data>
+                     <Data name="ObservationTimeStart">
+                        <value>2026-10-23T00:57:31.204</value>
+                     </Data>
+                     <Data name="ObservationTimeStop">
+                        <value>2026-10-23T01:07:37.348</value>
+                     </Data>
+                     <Data name="ObservationDuration">
+                        <value>606144</value>
+                     </Data>
+                     <Data name="OrbitAbsolute">
+                        <value>11126</value>
+                     </Data>
+                     <Data name="OrbitRelative">
+                        <value>2</value>
+                     </Data>
+                     <Data name="Scenes">
+                        <value>168</value>
+                     </Data>
+                  </ExtendedData>
+                  <Polygon>
+                     <outerBoundaryIs>
+                        <LinearRing>
+                           <coordinates>143.2377764971952,-0.08407323055877904,0 141.97280053047547,0.1979980094669565,0 141.18592422797735,-3.3599459953144173,0 140.38990727494763,-6.916237657926624,0 139.5804073945919,-10.470160127365794,0 138.75273193079354,-14.020975144907267,0 137.90167878409358,-17.567915500349432,0 137.0213446932196,-21.1101740660106,0 136.10488560377263,-24.646887967267205,0 135.14420806809022,-28.17711591584703,0 134.12956161852836,-31.699805901495758,0 133.04899137042463,-35.213749156938455,0 132.95113674215534,-35.51982219330637,0 134.51721426552186,-35.843096214914866,0 136.0960832985699,-36.145959576771574,0 136.1817943274402,-35.83855752109249,0 137.13490758062585,-32.310935182050606,0 138.041664962781,-28.777064137646168,0 138.91154167133226,-25.237718193356663,0 139.75233680173997,-21.693609748044874,0 140.57061108575493,-18.145415187423698,0 141.37201540291773,-14.593792413723193,0 142.16154108873369,-11.039392825051108,0 142.94371712118553,-7.482869466263314,0 143.72277176933343,-3.9248826025912105,0 144.5027715964242,-0.36610368127001214,0 143.2377764971952,-0.08407323055877904,0</coordinates>
+                        </LinearRing>
+                     </outerBoundaryIs>
+                  </Polygon>
+               </Placemark>
+               <Placemark>
+                  <name>11140-3</name>
+                  <visibility>0</visibility>
+                  <TimeSpan>
+                     <begin>2026-10-24T00:27:30.651</begin>
+                     <end>2026-10-24T00:38:20.091</end>
+                  </TimeSpan>
+                  <styleUrl>NOBS_NOMINAL</styleUrl>
+                  <ExtendedData>
+                     <Data name="ID">
+                        <value>11140-3</value>
+                     </Data>
+                     <Data name="Mode">
+                        <value>NOBS</value>
+                     </Data>
+                     <Data name="ObservationTimeStart">
+                        <value>2026-10-24T00:27:30.651</value>
+                     </Data>
+                     <Data name="ObservationTimeStop">
+                        <value>2026-10-24T00:38:20.091</value>
+                     </Data>
+                     <Data name="ObservationDuration">
+                        <value>649440</value>
+                     </Data>
+                     <Data name="OrbitAbsolute">
+                        <value>11140</value>
+                     </Data>
+                     <Data name="OrbitRelative">
+                        <value>16</value>
+                     </Data>
+                     <Data name="Scenes">
+                        <value>180</value>
+                     </Data>
+                  </ExtendedData>
+                  <Polygon>
+                     <outerBoundaryIs>
+                        <LinearRing>
+                           <coordinates>150.6331375685015,-0.7980241466556749,0 149.36795191730553,-0.515729660783322,0 148.57958017916556,-4.073399269212624,0 147.78121651831682,-7.629274206061763,0 146.96845996523678,-11.18263378419425,0 146.13653100984527,-14.73273404212172,0 145.28010458918806,-18.27880129922921,0 144.3931097661434,-21.820018815033535,0 143.46847935578884,-25.35551010446836,0 142.49782415123047,-28.884314668859517,0 141.47100070240285,-32.40535332951426,0 140.37552484734957,-35.91737873586461,0 139.42865320414833,-38.75042021835055,0 141.0632289219085,-39.0827569952898,0 142.71316000631347,-39.39213838100859,0 143.5365219086803,-36.54527878228026,0 144.5002609302475,-33.01901060022019,0 145.41548519347975,-29.486328047430614,0 146.29208034239204,-25.948021431743857,0 147.13814259241096,-22.40481309009163,0 147.96045153638528,-18.85738497679427,0 148.76481830075934,-15.306397556619693,0 149.55635024188035,-11.752502743859784,0 150.33965950182997,-8.196352676883386,0 151.11901484318517,-4.638605891222046,0 151.89850490534687,-1.0799313395609218,0 150.6331375685015,-0.7980241466556749,0</coordinates>
+                        </LinearRing>
+                     </outerBoundaryIs>
+                  </Polygon>
+               </Placemark>
+               <Placemark>
+                  <name>11154-7</name>
+                  <visibility>0</visibility>
+                  <TimeSpan>
+                     <begin>2026-10-25T00:02:46.439</begin>
+                     <end>2026-10-25T00:09:37.751</end>
+                  </TimeSpan>
+                  <styleUrl>NOBS_NOMINAL</styleUrl>
+                  <ExtendedData>
+                     <Data name="ID">
+                        <value>11154-7</value>
+                     </Data>
+                     <Data name="Mode">
+                        <value>NOBS</value>
+                     </Data>
+                     <Data name="ObservationTimeStart">
+                        <value>2026-10-25T00:02:46.439</value>
+                     </Data>
+                     <Data name="ObservationTimeStop">
+                        <value>2026-10-25T00:09:37.751</value>
+                     </Data>
+                     <Data name="ObservationDuration">
+                        <value>411312</value>
+                     </Data>
+                     <Data name="OrbitAbsolute">
+                        <value>11154</value>
+                     </Data>
+                     <Data name="OrbitRelative">
+                        <value>30</value>
+                     </Data>
+                     <Data name="Scenes">
+                        <value>114</value>
+                     </Data>
+                  </ExtendedData>
+                  <Polygon>
+                     <outerBoundaryIs>
+                        <LinearRing>
+                           <coordinates>153.76929853132216,-20.250034514474947,0 152.41728876682956,-19.9541826695211,0 151.5134470728618,-23.49280601762257,0 150.56818966548397,-27.0252611382299,0 149.57235961792315,-30.55053647552289,0 148.51479131366764,-34.067480569400786,0 147.3816291515835,-37.57474343670259,0 146.15538115128336,-41.07069246570878,0 145.03705433756681,-43.99718538173882,0 146.80793088340195,-44.34816398181601,0 148.59978563928595,-44.67154652692994,0 149.55427347755625,-41.72558559049648,0 150.61284841320924,-38.210446701670875,0 151.60365208621596,-34.6875167602853,0 152.54046341955018,-31.1577639744616,0 153.4342272857719,-27.622023824985007,0 154.29381773778195,-24.081046734631855,0 155.12658724895584,-20.53553097573332,0 153.76929853132216,-20.250034514474947,0</coordinates>
+                        </LinearRing>
+                     </outerBoundaryIs>
+                  </Polygon>
+               </Placemark>
+               <Placemark>
+                  <name>11168-5</name>
+                  <visibility>0</visibility>
+                  <TimeSpan>
+                     <begin>2026-10-25T23:35:02.842</begin>
+                     <end>2026-10-25T23:35:53.354</end>
+                  </TimeSpan>
+                  <styleUrl>NOBS_NOMINAL</styleUrl>
+                  <ExtendedData>
+                     <Data name="ID">
+                        <value>11168-5</value>
+                     </Data>
+                     <Data name="Mode">
+                        <value>NOBS</value>
+                     </Data>
+                     <Data name="ObservationTimeStart">
+                        <value>2026-10-25T23:35:02.842</value>
+                     </Data>
+                     <Data name="ObservationTimeStop">
+                        <value>2026-10-25T23:35:53.354</value>
+                     </Data>
+                     <Data name="ObservationDuration">
+                        <value>50512</value>
+                     </Data>
+                     <Data name="OrbitAbsolute">
+                        <value>11168</value>
+                     </Data>
+                     <Data name="OrbitRelative">
+                        <value>44</value>
+                     </Data>
+                     <Data name="Scenes">
+                        <value>14</value>
+                     </Data>
+                  </ExtendedData>
+                  <Polygon>
+                     <outerBoundaryIs>
+                        <LinearRing>
+                           <coordinates>159.0986112490361,-29.038147687434652,0 157.6464220512188,-28.729544790672808,0 156.80428211377205,-31.641293661521185,0 158.30082202114664,-31.9555592665822,0 159.8076840801567,-32.25221808712734,0 160.55959249645863,-29.33109835446404,0 159.0986112490361,-29.038147687434652,0</coordinates>
+                        </LinearRing>
+                     </outerBoundaryIs>
+                  </Polygon>
+               </Placemark>
+               <Placemark>
+                  <name>11169-5</name>
+                  <visibility>0</visibility>
+                  <TimeSpan>
+                     <begin>2026-10-26T01:07:50.549</begin>
+                     <end>2026-10-26T01:17:02.573</end>
+                  </TimeSpan>
+                  <styleUrl>NOBS_NOMINAL</styleUrl>
+                  <ExtendedData>
+                     <Data name="ID">
+                        <value>11169-5</value>
+                     </Data>
+                     <Data name="Mode">
+                        <value>NOBS</value>
+                     </Data>
+                     <Data name="ObservationTimeStart">
+                        <value>2026-10-26T01:07:50.549</value>
+                     </Data>
+                     <Data name="ObservationTimeStop">
+                        <value>2026-10-26T01:17:02.573</value>
+                     </Data>
+                     <Data name="ObservationDuration">
+                        <value>552024</value>
+                     </Data>
+                     <Data name="OrbitAbsolute">
+                        <value>11169</value>
+                     </Data>
+                     <Data name="OrbitRelative">
+                        <value>45</value>
+                     </Data>
+                     <Data name="Scenes">
+                        <value>153</value>
+                     </Data>
+                  </ExtendedData>
+                  <Polygon>
+                     <outerBoundaryIs>
+                        <LinearRing>
+                           <coordinates>140.52254543086642,-0.9828072249705166,0 139.2572758288876,-0.7004524347091486,0 138.46848727715152,-4.258045912165063,0 137.66948699685037,-7.813807752830865,0 136.8558579239146,-11.36701626887325,0 136.0227948504672,-14.916926718589226,0 135.16493832571442,-18.46276301323884,0 134.27617246557287,-22.003705676124362,0 133.34937018645664,-25.538874499600038,0 132.37606287999898,-29.06730375013373,0 131.3460015237036,-32.587906841222214,0 131.14801440804783,-33.239083634870205,0 132.67166217266876,-33.5568396953605,0 134.2065816622469,-33.85586382005718,0 134.38157168335658,-33.20223460373866,0 135.29906105825185,-29.669865104567727,0 136.1774554907243,-26.131832342935454,0 137.0249312965765,-22.588861462193176,0 137.8483270831652,-19.041636017147837,0 138.65349724846345,-15.490817259367281,0 139.44557929652538,-11.937057331467122,0 140.2292025364721,-8.381008251827167,0 141.0086573397456,-4.823328039043583,0 141.78803882467824,-1.2646850002165564,0 140.52254543086642,-0.9828072249705166,0</coordinates>
+                        </LinearRing>
+                     </outerBoundaryIs>
+                  </Polygon>
+               </Placemark>
+               <Placemark>
+                  <name>11183-4</name>
+                  <visibility>0</visibility>
+                  <TimeSpan>
+                     <begin>2026-10-27T00:37:27.858</begin>
+                     <end>2026-10-27T00:48:10.082</end>
+                  </TimeSpan>
+                  <styleUrl>NOBS_NOMINAL</styleUrl>
+                  <ExtendedData>
+                     <Data name="ID">
+                        <value>11183-4</value>
+                     </Data>
+                     <Data name="Mode">
+                        <value>NOBS</value>
+                     </Data>
+                     <Data name="ObservationTimeStart">
+                        <value>2026-10-27T00:37:27.858</value>
+                     </Data>
+                     <Data name="ObservationTimeStop">
+                        <value>2026-10-27T00:48:10.082</value>
+                     </Data>
+                     <Data name="ObservationDuration">
+                        <value>642224</value>
+                     </Data>
+                     <Data name="OrbitAbsolute">
+                        <value>11183</value>
+                     </Data>
+                     <Data name="OrbitRelative">
+                        <value>59</value>
+                     </Data>
+                     <Data name="Scenes">
+                        <value>178</value>
+                     </Data>
+                  </ExtendedData>
+                  <Polygon>
+                     <outerBoundaryIs>
+                        <LinearRing>
+                           <coordinates>148.2068825347898,-0.3834108990892453,0 146.94184405828963,-0.10124822525163837,0 146.15436015418786,-3.6590804545768623,0 145.3573804639475,-7.2152007429504135,0 144.54653878618407,-10.768890666331204,0 143.71710612014408,-14.319409861771934,0 142.86382933797177,-17.865988241995172,0 141.9807360935145,-21.407814681813708,0 141.06089029876185,-24.944020701247076,0 140.09607651172936,-28.473657100191424,0 139.07638221393864,-31.995660691239195,0 137.9896356490862,-35.508806854744535,0 137.19459072181365,-37.92194766068976,0 138.8105947925335,-38.25180737130994,0 140.44124382551186,-38.559384427491665,0 141.13414287340126,-36.13489603818524,0 142.091654268768,-32.60783725156769,0 143.00191773895205,-29.07446079356749,0 143.87457527206166,-25.535547152839737,0 144.71754838037972,-21.99181278322348,0 145.53748796366568,-18.44393633580782,0 146.3401108775052,-14.89257673858838,0 147.13045571869142,-11.33838557819435,0 147.9130837228271,-7.782015517093872,0 148.6922428493781,-4.224126043730999,0 149.472008275902,-0.6653875372509969,0 148.2068825347898,-0.3834108990892453,0</coordinates>
+                        </LinearRing>
+                     </outerBoundaryIs>
+                  </Polygon>
+               </Placemark>
+               <Placemark>
+                  <name>11197-6</name>
+                  <visibility>0</visibility>
+                  <TimeSpan>
+                     <begin>2026-10-28T00:11:35.198</begin>
+                     <end>2026-10-28T00:19:31.454</end>
+                  </TimeSpan>
+                  <styleUrl>NOBS_NOMINAL</styleUrl>
+                  <ExtendedData>
+                     <Data name="ID">
+                        <value>11197-6</value>
+                     </Data>
+                     <Data name="Mode">
+                        <value>NOBS</value>
+                     </Data>
+                     <Data name="ObservationTimeStart">
+                        <value>2026-10-28T00:11:35.198</value>
+                     </Data>
+                     <Data name="ObservationTimeStop">
+                        <value>2026-10-28T00:19:31.454</value>
+                     </Data>
+                     <Data name="ObservationDuration">
+                        <value>476256</value>
+                     </Data>
+                     <Data name="OrbitAbsolute">
+                        <value>11197</value>
+                     </Data>
+                     <Data name="OrbitRelative">
+                        <value>73</value>
+                     </Data>
+                     <Data name="Scenes">
+                        <value>132</value>
+                     </Data>
+                  </ExtendedData>
+                  <Polygon>
+                     <outerBoundaryIs>
+                        <LinearRing>
+                           <coordinates>152.30638295116816,-15.789059437641438,0 150.98908215594338,-15.497788049828307,0 150.1266068243304,-19.042880599495298,0 149.23213207221764,-22.582940106829515,0 148.2983361916189,-26.117074291095385,0 147.316492585913,-29.644300381273624,0 146.2760089865963,-33.163507680479015,0 145.16380826033713,-36.67340425939923,0 143.96343299852902,-40.17244016455112,0 142.75988576637587,-43.388787109944715,0 144.51314101041297,-43.737309257537895,0 146.28660317998768,-44.05881056001605,0 147.316529323698,-40.822015831427166,0 148.35614980810632,-37.304769881903034,0 149.33186297359254,-33.779998035530255,0 150.2566497695959,-30.2486291900536,0 151.14084460932145,-26.711472603075688,0 151.99288451080469,-23.16926262615084,0 152.81980012667776,-19.62268811156514,0 153.62758681145428,-16.07241292725924,0 152.30638295116816,-15.789059437641438,0</coordinates>
+                        </LinearRing>
+                     </outerBoundaryIs>
+                  </Polygon>
+               </Placemark>
+               <Placemark>
+                  <name>11211-4</name>
+                  <visibility>0</visibility>
+                  <TimeSpan>
+                     <begin>2026-10-28T23:38:39.481</begin>
+                     <end>2026-10-28T23:45:59.657</end>
+                  </TimeSpan>
+                  <styleUrl>NOBS_NOMINAL</styleUrl>
+                  <ExtendedData>
+                     <Data name="ID">
+                        <value>11211-4</value>
+                     </Data>
+                     <Data name="Mode">
+                        <value>NOBS</value>
+                     </Data>
+                     <Data name="ObservationTimeStart">
+                        <value>2026-10-28T23:38:39.481</value>
+                     </Data>
+                     <Data name="ObservationTimeStop">
+                        <value>2026-10-28T23:45:59.657</value>
+                     </Data>
+                     <Data name="ObservationDuration">
+                        <value>440176</value>
+                     </Data>
+                     <Data name="OrbitAbsolute">
+                        <value>11211</value>
+                     </Data>
+                     <Data name="OrbitRelative">
+                        <value>87</value>
+                     </Data>
+                     <Data name="Scenes">
+                        <value>122</value>
+                     </Data>
+                  </ExtendedData>
+                  <Polygon>
+                     <outerBoundaryIs>
+                        <LinearRing>
+                           <coordinates>162.0449602567837,-6.124795288423985,0 160.77186854869004,-5.840287357106419,0 159.96692433660002,-9.395003989413695,0 159.14526987905515,-12.946838697527424,0 158.30187733702215,-16.4950343785667,0 157.43107838966412,-20.038797579400658,0 156.5263426297523,-23.577284356077154,0 155.57999251277752,-27.109580085350917,0 154.58282958416055,-30.634670436198515,0 154.25008748106066,-31.764863997677146,0 155.74865268569206,-32.07938943087975,0 157.25761045978624,-32.376222415714096,0 157.5535950694667,-31.242175128215674,0 158.44827171036277,-27.706568894863985,0 159.30858353173605,-24.165708585592146,0 160.14191410686837,-20.620293391202964,0 160.95451825209904,-17.070992516273687,0 161.75182361894193,-13.518460809070152,0 162.53866430648483,-9.963349402587095,0 163.31946483155448,-6.406313010715785,0 162.0449602567837,-6.124795288423985,0</coordinates>
+                        </LinearRing>
+                     </outerBoundaryIs>
+                  </Polygon>
+               </Placemark>
+               <Placemark>
+                  <name>11226-3</name>
+                  <visibility>0</visibility>
+                  <TimeSpan>
+                     <begin>2026-10-30T00:47:29.288</begin>
+                     <end>2026-10-30T00:57:46.256</end>
+                  </TimeSpan>
+                  <styleUrl>NOBS_NOMINAL</styleUrl>
+                  <ExtendedData>
+                     <Data name="ID">
+                        <value>11226-3</value>
+                     </Data>
+                     <Data name="Mode">
+                        <value>NOBS</value>
+                     </Data>
+                     <Data name="ObservationTimeStart">
+                        <value>2026-10-30T00:47:29.288</value>
+                     </Data>
+                     <Data name="ObservationTimeStop">
+                        <value>2026-10-30T00:57:46.256</value>
+                     </Data>
+                     <Data name="ObservationDuration">
+                        <value>616968</value>
+                     </Data>
+                     <Data name="OrbitAbsolute">
+                        <value>11226</value>
+                     </Data>
+                     <Data name="OrbitRelative">
+                        <value>102</value>
+                     </Data>
+                     <Data name="Scenes">
+                        <value>171</value>
+                     </Data>
+                  </ExtendedData>
+                  <Polygon>
+                     <outerBoundaryIs>
+                        <LinearRing>
+                           <coordinates>145.72550161251178,-0.2193260150806548,0 144.4604990191144,0.06278640683998006,0 143.67335398186825,-3.4951080608790384,0 142.87690657999985,-7.051323286801482,0 142.0668038432842,-10.605141696203761,0 141.2383371327882,-14.155823939693173,0 140.38628415004953,-17.702601119252716,0 139.50471030087593,-21.24466489147073,0 138.586730268493,-24.78114990420414,0 137.6241959139636,-28.3111113695344,0 136.6072841330132,-31.83349231838815,0 135.52393958392372,-35.3470769107154,0 135.22088604560003,-36.28575890894999,0 136.80227688447732,-36.611041539343944,0 138.39701940979558,-36.9153286730967,0 138.66202100560506,-35.97246185802142,0 139.61710630103383,-32.445093107157575,0 140.52543068065464,-28.911444605600398,0 141.39654984580295,-25.37229325880271,0 142.238317653838,-21.82835322636473,0 143.05733516738627,-18.280301858036147,0 143.85928276420228,-14.728797477003521,0 144.64917921098564,-11.174491479266091,0 145.43156046962577,-7.618036769360172,0 146.21066197702646,-4.060093291867005,0 146.99055412090553,-0.5013320211449792,0 145.72550161251178,-0.2193260150806548,0</coordinates>
+                        </LinearRing>
+                     </outerBoundaryIs>
+                  </Polygon>
+               </Placemark>
+               <Placemark>
+                  <name>11240-5</name>
+                  <visibility>0</visibility>
+                  <TimeSpan>
+                     <begin>2026-10-31T00:21:19.572</begin>
+                     <end>2026-10-31T00:29:01.396</end>
+                  </TimeSpan>
+                  <styleUrl>NOBS_NOMINAL</styleUrl>
+                  <ExtendedData>
+                     <Data name="ID">
+                        <value>11240-5</value>
+                     </Data>
+                     <Data name="Mode">
+                        <value>NOBS</value>
+                     </Data>
+                     <Data name="ObservationTimeStart">
+                        <value>2026-10-31T00:21:19.572</value>
+                     </Data>
+                     <Data name="ObservationTimeStop">
+                        <value>2026-10-31T00:29:01.396</value>
+                     </Data>
+                     <Data name="ObservationDuration">
+                        <value>461824</value>
+                     </Data>
+                     <Data name="OrbitAbsolute">
+                        <value>11240</value>
+                     </Data>
+                     <Data name="OrbitRelative">
+                        <value>116</value>
+                     </Data>
+                     <Data name="Scenes">
+                        <value>128</value>
+                     </Data>
+                  </ExtendedData>
+                  <Polygon>
+                     <outerBoundaryIs>
+                        <LinearRing>
+                           <coordinates>150.060347964797,-14.615891945171505,0 148.7505918364369,-14.325656011843542,0 147.89726811804087,-17.8722267415259,0 147.0141167150027,-21.414044060998325,0 146.09419959243746,-24.950239373282816,0 145.12929872809462,-28.47986331222006,0 144.10949817510377,-32.00185245573367,0 143.0226191682054,-35.5149818265521,0 141.8534476319176,-39.01779714380892,0 140.9992664119773,-41.39955542082465,0 142.69838418625002,-41.74061729192318,0 144.41542488272464,-42.05646796066434,0 145.1504999774754,-39.66094269341521,0 146.16737216390146,-36.14109799988143,0 147.1249802646953,-32.614051173215536,0 148.03531733816445,-29.08068510638244,0 148.90803325029182,-25.541780557043477,0 149.7510521008536,-21.998054063141783,0 150.57102669512878,-18.45018432261676,0 151.37367528358354,-14.898830283926817,0 150.060347964797,-14.615891945171505,0</coordinates>
+                        </LinearRing>
+                     </outerBoundaryIs>
+                  </Polygon>
+               </Placemark>
+               <Placemark>
+                  <name>11254-8</name>
+                  <visibility>0</visibility>
+                  <TimeSpan>
+                     <begin>2026-10-31T23:52:55.085</begin>
+                     <end>2026-10-31T23:59:31.965</end>
+                  </TimeSpan>
+                  <styleUrl>NOBS_NOMINAL</styleUrl>
+                  <ExtendedData>
+                     <Data name="ID">
+                        <value>11254-8</value>
+                     </Data>
+                     <Data name="Mode">
+                        <value>NOBS</value>
+                     </Data>
+                     <Data name="ObservationTimeStart">
+                        <value>2026-10-31T23:52:55.085</value>
+                     </Data>
+                     <Data name="ObservationTimeStop">
+                        <value>2026-10-31T23:59:31.965</value>
+                     </Data>
+                     <Data name="ObservationDuration">
+                        <value>396880</value>
+                     </Data>
+                     <Data name="OrbitAbsolute">
+                        <value>11254</value>
+                     </Data>
+                     <Data name="OrbitRelative">
+                        <value>130</value>
+                     </Data>
+                     <Data name="Scenes">
+                        <value>110</value>
+                     </Data>
+                  </ExtendedData>
+                  <Polygon>
+                     <outerBoundaryIs>
+                        <LinearRing>
+                           <coordinates>156.10330471130322,-21.008768525677286,0 154.74439755860666,-20.712027054307395,0 153.83238094615842,-24.249409482275695,0 152.87713237898504,-27.780416751101335,0 151.8691120261692,-31.304011402492865,0 150.79664350225087,-34.819005216305726,0 149.64518147949823,-38.32399586686185,0 148.39628233666903,-41.81727528964466,0 147.5912377465114,-43.905012620086445,0 149.35941474160566,-44.255613710699954,0 151.148450730559,-44.57870645196817,0 151.8347882038084,-42.47681194846255,0 152.91002594539427,-38.96348462341945,0 153.91405152755033,-35.442134609292694,0 154.8614037089085,-31.9137678008035,0 155.76356438909107,-28.379243532057558,0 156.62979838191657,-24.839327171059075,0 157.4677462950236,-21.294725898997726,0 156.10330471130322,-21.008768525677286,0</coordinates>
+                        </LinearRing>
+                     </outerBoundaryIs>
+                  </Polygon>
+               </Placemark>
+               <Placemark>
+                  <name>11269-4</name>
+                  <visibility>0</visibility>
+                  <TimeSpan>
+                     <begin>2026-11-02T00:57:31.204</begin>
+                     <end>2026-11-02T01:07:37.348</end>
+                  </TimeSpan>
+                  <styleUrl>NOBS_NOMINAL</styleUrl>
+                  <ExtendedData>
+                     <Data name="ID">
+                        <value>11269-4</value>
+                     </Data>
+                     <Data name="Mode">
+                        <value>NOBS</value>
+                     </Data>
+                     <Data name="ObservationTimeStart">
+                        <value>2026-11-02T00:57:31.204</value>
+                     </Data>
+                     <Data name="ObservationTimeStop">
+                        <value>2026-11-02T01:07:37.348</value>
+                     </Data>
+                     <Data name="ObservationDuration">
+                        <value>606144</value>
+                     </Data>
+                     <Data name="OrbitAbsolute">
+                        <value>11269</value>
+                     </Data>
+                     <Data name="OrbitRelative">
+                        <value>2</value>
+                     </Data>
+                     <Data name="Scenes">
+                        <value>168</value>
+                     </Data>
+                  </ExtendedData>
+                  <Polygon>
+                     <outerBoundaryIs>
+                        <LinearRing>
+                           <coordinates>143.23777649724934,-0.08407323055877904,0 141.97280053052938,0.1979980094669565,0 141.1859242280314,-3.3599459953144173,0 140.3899072750017,-6.916237657926624,0 139.58040739464596,-10.470160127365794,0 138.7527319308476,-14.020975144907267,0 137.90167878414772,-17.56791550034942,0 137.02134469327373,-21.1101740660106,0 136.10488560382666,-24.6468879672672,0 135.14420806814425,-28.177115915847025,0 134.1295616185824,-31.699805901495758,0 133.04899137047866,-35.21374915693843,0 132.9511367422094,-35.51982219330637,0 134.5172142655758,-35.843096214914866,0 136.09608329862394,-36.145959576771574,0 136.18179432749423,-35.83855752109249,0 137.13490758067988,-32.310935182050606,0 138.04166496283506,-28.77706413764617,0 138.91154167138632,-25.237718193356663,0 139.75233680179412,-21.693609748044874,0 140.570611085809,-18.145415187423687,0 141.37201540297175,-14.593792413723206,0 142.16154108878771,-11.039392825051094,0 142.94371712123947,-7.482869466263314,0 143.7227717693875,-3.924882602591191,0 144.50277159647823,-0.36610368127001214,0 143.23777649724934,-0.08407323055877904,0</coordinates>
+                        </LinearRing>
+                     </outerBoundaryIs>
+                  </Polygon>
+               </Placemark>
+               </Folder>
+         </Folder>
+         <Folder>
+            <name>VIC</name>
+            <Folder>
+               <name>NOMINAL</name>
+</Folder>
+         </Folder>
+         <Folder>
+            <name>RAW</name>
+            <Folder>
+               <name>NOMINAL</name>
+</Folder>
+         </Folder>
+         <Folder>
+            <name>DARK-O</name>
+            <Folder>
+               <name>NOMINAL</name>
+</Folder>
+         </Folder>
+      </Folder>
+   </Document>
+</kml>
